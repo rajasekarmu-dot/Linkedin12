@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De AI Solutions — Client TRD Chatbot & Assistant Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">De</div>
+        <div class="brand-info">
+          <h2>De AI Solutions</h2>
+          <span class="subtext">TRD Chatbot Assistant</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-btn active" data-tab="chat-tab">
+          <i class="fa-solid fa-comments"></i>
+          <span>Document Chat AI</span>
+        </button>
+        <button class="nav-btn" data-tab="doc-tab">
+          <i class="fa-solid fa-file-contract"></i>
+          <span>TRD Requirements Explorer</span>
+        </button>
+        <button class="nav-btn" data-tab="simulator-tab">
+          <i class="fa-solid fa-diagram-project"></i>
+          <span>Workflow & Lead Simulator</span>
+        </button>
+      </nav>
+
+      <div class="document-summary-box">
+        <div class="doc-header">
+          <i class="fa-solid fa-file-pdf pdf-icon"></i>
+          <div>
+            <div class="doc-title">Client_TRD.pdf</div>
+            <div class="doc-meta">6 Pages • 9 Requirements</div>
+          </div>
+        </div>
+        <div class="doc-badge"><i class="fa-solid fa-check"></i> Loaded in Context</div>
+      </div>
+
+      <div class="api-key-box">
+        <div class="api-status">
+          <span class="status-dot online"></span>
+          <span class="status-text">Gemini AI Engine Connected</span>
+        </div>
+        <div class="key-preview">Key: AQ.Ab8RN...PUIP1Q</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <h1 id="page-title">Client TRD Document AI Assistant</h1>
+          <p id="page-subtitle">Ask any question regarding technical requirements, system architecture, deliverables, or workflow steps.</p>
+        </div>
+        <div class="header-right">
+          <button class="action-btn secondary" id="clear-chat-btn">
+            <i class="fa-solid fa-rotate-left"></i> Reset Chat
+          </button>
+          <button class="action-btn primary" id="export-summary-btn">
+            <i class="fa-solid fa-download"></i> Export TRD Summary
+          </button>
+        </div>
+      </header>
+
+      <!-- TAB 1: Chat Assistant -->
+      <section class="tab-pane active" id="chat-tab">
+        <div class="chat-layout">
+          <!-- Main Chat Container -->
+          <div class="chat-main">
+            <div class="messages-container" id="messages-container">
+              <!-- Welcome message -->
+              <div class="message system-msg">
+                <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                <div class="message-content">
+                  <div class="sender">De AI Assistant</div>
+                  <p>Hello! I am your AI Assistant for <strong>Client_TRD.pdf</strong> (Technical Requirements Document: AI-Powered Lead Funnel & Admin Assistant).</p>
+                  <p>I have ingested all requirements (REQ-01 to REQ-09), actors, system components, workflow hand-offs, non-functional requirements, deliverables, and open items to confirm.</p>
+                  <p>How can I help you today?</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="quick-prompts" id="quick-prompts">
+              <span class="prompt-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Try asking:</span>
+              <button class="prompt-chip" data-query="Give me a complete summary of all 9 requirements (REQ-01 to REQ-09).">
+                📋 REQ-01 to REQ-09 Summary
+              </button>
+              <button class="prompt-chip" data-query="What are the 6 open items that the subcontractor needs to confirm with the client?">
+                ❓ Open Items to Confirm
+              </button>
+              <button class="prompt-chip" data-query="Explain how the WhatsApp Lead Engagement and $10 Session booking works (REQ-02 & REQ-03).">
+                💬 Lead Funnel & Session Booking
+              </button>
+              <button class="prompt-chip" data-query="What deliverables and non-functional requirements (e.g. PDPA, hosting) are specified?">
+                📦 Deliverables & Hosting Specs
+              </button>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <div class="input-container">
+              <form id="chat-form">
+                <div class="input-wrapper">
+                  <textarea id="user-input" placeholder="Ask a question about Client_TRD.pdf..." rows="1"></textarea>
+                  <button type="submit" id="send-btn" title="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Quick Reference Drawer -->
+          <div class="chat-sidebar">
+            <h3><i class="fa-solid fa-bookmark"></i> Quick Reference</h3>
+            <div class="ref-card">
+              <h4>Key Actors</h4>
+              <ul>
+                <li><strong>Lead/Prospect:</strong> Engages on WhatsApp & books $10 session</li>
+                <li><strong>AI Agent:</strong> Qualifies leads, books, reminds & drafts</li>
+                <li><strong>Client (Coach):</strong> Reviews drafts, holds sessions</li>
+              </ul>
+            </div>
+            <div class="ref-card">
+              <h4>Pipeline Stages</h4>
+              <div class="pipeline-badge-group">
+                <span class="pipe-tag p1">New Contact</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span class="pipe-tag p2">Coffee Meeting</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span class="pipe-tag p3">$10 Session</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span class="pipe-tag p4">Active Client</span>
+              </div>
+            </div>
+            <div class="ref-card">
+              <h4>System Stack</h4>
+              <p>WhatsApp Business API • Calendly/GCal • Persistent Data Store • Node/De AI Hosted Infrastructure (No Mac mini)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: TRD Document Explorer -->
+      <section class="tab-pane" id="doc-tab">
+        <div class="explorer-layout">
+          <!-- Left: Section Index -->
+          <div class="doc-nav-column">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="req-search" placeholder="Search requirements or text...">
+            </div>
+            <div class="doc-sections-list" id="doc-sections-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Right: Document Content & Requirements Matrix -->
+          <div class="doc-detail-column" id="doc-detail-column">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: Workflow & Lead Simulator -->
+      <section class="tab-pane" id="simulator-tab">
+        <div class="simulator-layout">
+          <div class="sim-header">
+            <h3><i class="fa-solid fa-vial"></i> Interactive Workflow & Lead Funnel Simulator</h3>
+            <p>Experience how the AI Agent executes REQ-01 through REQ-09 in real time.</p>
+          </div>
+
+          <div class="sim-grid">
+            <!-- Simulator Box 1: Lead WhatsApp Simulation -->
+            <div class="sim-card">
+              <div class="sim-card-header">
+                <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+                <div>
+                  <h4>REQ-01 & REQ-02: WhatsApp Lead Qualification</h4>
+                  <span class="sim-sub">Simulate a prospect coming from LinkedIn</span>
+                </div>
+              </div>
+              <div class="sim-body">
+                <div class="sim-chat-box" id="lead-sim-chat">
+                  <div class="chat-bubble incoming">
+                    <strong>Lead (Prospect):</strong> Hi! I saw your LinkedIn post about coaching. How does the $10 intro session work?
+                  </div>
+                  <div class="chat-bubble outgoing">
+                    <strong>AI Agent:</strong> Hi there! 👋 Thanks for reaching out. In our 30-minute $10 intro session, we review your current goals, identify core bottlenecks, and map out a growth plan. Would you like me to book a spot on the calendar?
+                  </div>
+                </div>
+                <div class="sim-actions">
+                  <button class="sim-btn" id="sim-book-btn"><i class="fa-solid fa-calendar-check"></i> Trigger REQ-03 Session Booking</button>
+                  <button class="sim-btn secondary" id="sim-escalate-btn"><i class="fa-solid fa-user-shield"></i> Flag Out-of-Scope Escalate</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simulator Box 2: Client Chat Admin Assistant -->
+            <div class="sim-card">
+              <div class="sim-card-header">
+                <i class="fa-solid fa-user-tie client-icon"></i>
+                <div>
+                  <h4>REQ-04 & REQ-07: Coach Chat & Admin Drafting</h4>
+                  <span class="sim-sub">Simulate Coach sending instructions to AI Agent</span>
+                </div>
+              </div>
+              <div class="sim-body">
+                <div class="sim-input-box">
+                  <label for="coach-instruction">Coach Voice Instruction / Text:</label>
+                  <input type="text" id="coach-instruction" value="Met Michael Chang today, follow up in 3 weeks and draft a follow-up email." />
+                  <button class="action-btn primary" id="run-coach-cmd-btn"><i class="fa-solid fa-paper-plane"></i> Process Instruction</button>
+                </div>
+                <div class="sim-output-box" id="coach-sim-output">
+                  <div class="output-placeholder">Run a command above to see contact logging (REQ-04) & admin draft generation (REQ-07).</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simulator Box 3: Contact & Pipeline Tracker -->
+            <div class="sim-card full-width">
+              <div class="sim-card-header">
+                <i class="fa-solid fa-table-cells"></i>
+                <div>
+                  <h4>REQ-04, REQ-05 & REQ-06: Live Contact Pipeline & Digest Generator</h4>
+                  <span class="sim-sub">Manage active contacts and generate weekly relationship-review digest</span>
+                </div>
+                <button class="action-btn secondary sm" id="gen-digest-btn"><i class="fa-solid fa-newspaper"></i> Generate REQ-06 Digest</button>
+              </div>
+              <div class="sim-body">
+                <div class="table-responsive">
+                  <table class="pipeline-table">
+                    <thead>
+                      <tr>
+                        <th>Contact Name</th>
+                        <th>Pipeline Stage</th>
+                        <th>Last Contacted</th>
+                        <th>Follow-Up Due</th>
+                        <th>Notes</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="pipeline-table-body">
+                      <!-- Dynamically rendered -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="trd_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
